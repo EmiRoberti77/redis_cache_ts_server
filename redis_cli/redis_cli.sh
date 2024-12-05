@@ -1,1 +1,0 @@
-redis-cli -u redis://default:SE2tBjY2c1gtu4fZzeEMlwWNivNvtzkO@redis-12199.c278.us-east-1-4.ec2.redns.redis-cloud.com:12199
