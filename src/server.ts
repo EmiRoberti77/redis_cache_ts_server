@@ -21,7 +21,7 @@ app.get("/", async (req: Request, res: Response) => {
   });
 
   res.status(200).json({
-    message: "server up",
+    message: "server",
     timeStamp: timeStamp(),
     entityKey,
     savedData: await promptRepo.fetch(entityKey),
