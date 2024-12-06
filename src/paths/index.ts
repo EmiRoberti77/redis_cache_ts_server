@@ -5,6 +5,7 @@ export enum PATH_ROOT {
 }
 export enum PATHS_PROMPT {
   ROOT = "/",
+  ROOT_USER_PARAM = "/:user",
 }
 
 export enum PATHS_API {

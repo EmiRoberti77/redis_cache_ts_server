@@ -42,4 +42,27 @@ router.put(PATHS_PROMPT.ROOT, async (req: Request, res: Response) => {
   });
 });
 
-router.get(PATHS_PROMPT.ROOT, async (req: Request, res: Response) => {});
+router.get(
+  PATHS_PROMPT.ROOT_USER_PARAM,
+  async (req: Request, res: Response) => {
+    if (!req.params) {
+      res.status(404).json({
+        message: ERR_MSGS.MISSING_PARAM,
+      });
+      return;
+    }
+    const user = req.params.user;
+    const repo = await initPromptRepository();
+    const prompts = await repo
+      .search()
+      .where("user")
+      .equalTo(user)
+      .sortDescending("dateTime")
+      .return.all();
+
+    console.log(user);
+    res.status(200).json({
+      prompts,
+    });
+  }
+);
