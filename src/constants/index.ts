@@ -3,3 +3,10 @@ export enum ERR_MSGS {
   MISSING_BODY = "Err:Missing body",
   MISSING_PARAM = "Err:Missing request param /:<param>",
 }
+
+export enum AUTHENTICATION {
+  API_KEY = "1234567890",
+  X_API_KEY = "x-api-key",
+  AUTHENTICATION_PASS = "200:Authentication success",
+  AUTHENTICATION_FAIL = "Err:403:Authentication forbidden",
+}
