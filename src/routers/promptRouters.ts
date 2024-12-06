@@ -39,6 +39,8 @@ router.put(
       dateTime: timeStamp(),
     });
 
+    await promptRepo.expire(entityKey, 30 * 24 * 60 * 60);
+
     res.status(200).json({
       timeStamp: timeStamp(),
       entityKey,
