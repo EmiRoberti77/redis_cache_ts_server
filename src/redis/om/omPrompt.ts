@@ -7,6 +7,7 @@ const promptSchema = new Schema(
     question: { type: "string" },
     answer: { type: "string" },
     user: { type: "string" },
+    dateTime: { type: "date" },
   },
   {
     dataStructure: "JSON",

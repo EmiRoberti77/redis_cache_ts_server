@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "nodemon": "nodemon"
+    "nodemon": "nodemon",
+    "build": "npx tsc",
+    "start": "node ./dist/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "redis"
+  ],
+  "author": "Emi Roberti",
   "license": "ISC",
   "description": "",
   "devDependencies": {
@@ -18,6 +22,8 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
+    "@types/ajv": "^0.0.5",
+    "ajv": "^8.17.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
