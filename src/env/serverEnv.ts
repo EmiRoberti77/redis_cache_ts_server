@@ -8,6 +8,7 @@ export interface ServerEnv {
   redisHost: string;
   redisLocal: string;
   redisUseCloud: boolean;
+  apiKey: string;
 }
 export const serverEnv: ServerEnv = {
   port: parseInt(process.env.PORT!),
@@ -17,6 +18,7 @@ export const serverEnv: ServerEnv = {
   redisHost: process.env.REDIS_HOST!,
   redisLocal: process.env.REDIS_LOCAL!,
   redisUseCloud: Boolean(process.env.REDUS_USE_CLOUD!),
+  apiKey: process.env.API_KEY!,
 };
 
 console.log(serverEnv);

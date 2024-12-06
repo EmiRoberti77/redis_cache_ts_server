@@ -49,6 +49,7 @@ router.put(
 
 router.get(
   PATHS_PROMPT.ROOT_USER_PARAM,
+  authenticateKey,
   async (req: Request, res: Response) => {
     if (!req.params) {
       res.status(404).json({

@@ -1,3 +1,5 @@
+import { serverEnv } from "../env/serverEnv";
+
 export const timeStamp = () => new Date().toISOString();
 export enum ERR_MSGS {
   MISSING_BODY = "Err:Missing body",
@@ -5,7 +7,6 @@ export enum ERR_MSGS {
 }
 
 export enum AUTHENTICATION {
-  API_KEY = "1234567890",
   X_API_KEY = "x-api-key",
   AUTHENTICATION_PASS = "200:Authentication success",
   AUTHENTICATION_FAIL = "Err:403:Authentication forbidden",
