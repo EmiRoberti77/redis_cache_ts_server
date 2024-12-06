@@ -1,7 +1,7 @@
 import { Router, Request, Response } from "express";
 import { PATHS_PROMPT } from "../paths";
 import { PromptParams } from "../models/promptParams";
-import { createPromptIndex } from "../redis/om/omPrompt";
+import { createPromptIndex, initPromptRepository } from "../redis/om/omPrompt";
 import { validatePrompt } from "../validation/promptRequestValidation";
 import { Repository } from "redis-om";
 import { ERR_MSGS, timeStamp } from "../constants";
@@ -24,7 +24,8 @@ router.put(PATHS_PROMPT.ROOT, async (req: Request, res: Response) => {
   }
 
   const promptParams: PromptParams = req.body;
-  const promptRepo: Repository = await createPromptIndex();
+  const promptRepo: Repository = await initPromptRepository();
+  await createPromptIndex(promptRepo);
   const entityKey = `${promptParams.user}:${timeStamp()}`;
 
   const prompt = await promptRepo.save(entityKey, {
@@ -40,3 +41,5 @@ router.put(PATHS_PROMPT.ROOT, async (req: Request, res: Response) => {
     savedData: await promptRepo.fetch(entityKey),
   });
 });
+
+router.get(PATHS_PROMPT.ROOT, async (req: Request, res: Response) => {});
